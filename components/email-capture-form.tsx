@@ -29,7 +29,6 @@ export function EmailCaptureForm({
       toast({
         title: "Email required",
         description: "Please enter your email address.",
-        variant: "destructive",
       })
       return
     }
@@ -38,7 +37,7 @@ export function EmailCaptureForm({
       toast({
         title: "Invalid email",
         description: "Please enter a valid email address.",
-        variant: "destructive",
+     
       })
       return
     }
