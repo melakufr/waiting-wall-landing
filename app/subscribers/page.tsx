@@ -1,5 +1,3 @@
-'use server'
-
 import { getSubscribersAction } from "@/lib/actions";
 import React from "react";
 
