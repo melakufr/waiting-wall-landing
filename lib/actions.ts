@@ -36,7 +36,7 @@ export const checkSubscriberAction = async (formData: {
       },
     });
     if (!res) {
-      return { success: false, error: "Subscriber not found" };
+      return { success: true, error: "Subscriber not found" };
     }
     return { success: true, data: res };
   } catch (error) {
@@ -45,6 +45,21 @@ export const checkSubscriberAction = async (formData: {
       success: false,
       error:
         error instanceof Error ? error.message : "Failed to check subscriber",
+    };
+  }
+};
+
+//get all subscribers
+export const getSubscribersAction = async (): Promise<{ success: boolean; data?: Subscribers[]; error?: string }> => {
+  try {
+    const res = await db.subscribers.findMany();
+    return { success: true, data: res };
+  } catch (error) {
+    console.error("Error getting subscribers:", error);
+    return {
+      success: false,
+      error:
+        error instanceof Error ? error.message : "Failed to get subscribers",
     };
   }
 };
