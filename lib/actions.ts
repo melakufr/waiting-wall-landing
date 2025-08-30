@@ -1,4 +1,4 @@
-import db from "@/prisma/db";
+import db from "@/lib/db";
 
 export const addSubscriberAction = async (formData: {
   email: string;
