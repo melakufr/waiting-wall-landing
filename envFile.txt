@@ -1,0 +1,16 @@
+NODE_ENV="production"
+NEXT_PUBLIC_WEBSITE_URL = https://waiting-wall-landing.vercel.app/
+
+#vercel-postgresql
+# Recommended for most uses
+DATABASE_URL=postgresql://neondb_owner:npg_hcaDnwux5f2s@ep-patient-dew-adimbpgz-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require
+
+# Parameters for Vercel Postgres Templates
+POSTGRES_URL=postgresql://neondb_owner:npg_hcaDnwux5f2s@ep-patient-dew-adimbpgz-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require
+POSTGRES_URL_NON_POOLING=postgresql://neondb_owner:npg_hcaDnwux5f2s@ep-patient-dew-adimbpgz.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require
+POSTGRES_USER=neondb_owner
+POSTGRES_HOST=ep-patient-dew-adimbpgz-pooler.c-2.us-east-1.aws.neon.tech
+POSTGRES_PASSWORD=npg_hcaDnwux5f2s
+POSTGRES_DATABASE=neondb
+POSTGRES_URL_NO_SSL=postgresql://neondb_owner:npg_hcaDnwux5f2s@ep-patient-dew-adimbpgz-pooler.c-2.us-east-1.aws.neon.tech/neondb
+POSTGRES_PRISMA_URL=postgresql://neondb_owner:npg_hcaDnwux5f2s@ep-patient-dew-adimbpgz-pooler.c-2.us-east-1.aws.neon.tech/neondb?connect_timeout=15&sslmode=require

@@ -6,3 +6,32 @@
 .npx prisma generate//generate prisma client
 .prisma clinet (db.ts)
     .must not be in lib folder. it should be in Util folder(new created folder)
+
+
+
+==vercel deployment
+    -create storage in vercel using 'Neon'
+        -this will crate the DB in 'neon' and setup using vercel.
+    -create .env in local and paste what vercel gives you
+        .from Vercel, '.env' and 'prisma' Tab
+        .NB don't push .env file to gitHub(vercel will pick it and there will be error)
+        .add in .gitignore file
+            .# local env files
+                .env*.local
+                .env*
+    -for prisma use this URL, in schema.prisma file.
+        .datasource db {
+            provider = "postgresql"
+            url      = env("POSTGRES_PRISMA_URL") 
+            }
+        .in package.json add    
+            "scripts": {
+                "dev": "next dev",
+                "build": "next build",
+                "start": "next start",
+                "lint": "next lint",
+                "postinstall": "prisma generate"
+            },
+
+    -Environment variables(Settings > Environment Variables.) vercel, what you use in local env and what vercel gives you.
+       
