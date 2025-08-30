@@ -4,3 +4,5 @@
 .npx prisma migrate dev --name init    //this create migration file on vercel DB
     .make shure you have .env file first.
 .npx prisma generate//generate prisma client
+.prisma clinet (db.ts)
+    .must not be in lib folder. it should be in Util folder(new created folder)

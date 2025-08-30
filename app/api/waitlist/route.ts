@@ -14,12 +14,18 @@ export async function POST(request: NextRequest) {
     }
 
     console.log(`New waitlist signup: ${email} at ${new Date().toISOString()}`)
+  
+   const result = await addSubscriberAction({ email });
+    console.log(result);
 
-    // In a real application, you would save this to a database
-   
-   const res = await addSubscriberAction({ email });
+    if (!result.success) {
+      return NextResponse.json({ error: result.error || 'Failed to add to waitlist' }, { status: 400 });
+    }
 
-    return NextResponse.json({ message: "Successfully added to waitlist",res }, { status: 200 })
+    return NextResponse.json({ 
+      message: "Successfully added to waitlist",
+      data: result.data 
+    }, { status: 200 })
   } catch (error) {
     console.error("Waitlist signup error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
