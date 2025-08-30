@@ -1,3 +1,4 @@
+import { addSubscriberAction } from "@/lib/actions"
 import { type NextRequest, NextResponse } from "next/server"
 
 export async function POST(request: NextRequest) {
@@ -15,9 +16,10 @@ export async function POST(request: NextRequest) {
     console.log(`New waitlist signup: ${email} at ${new Date().toISOString()}`)
 
     // In a real application, you would save this to a database
-    // For now, we'll just simulate success
+   
+   const res = await addSubscriberAction({ email });
 
-    return NextResponse.json({ message: "Successfully added to waitlist" }, { status: 200 })
+    return NextResponse.json({ message: "Successfully added to waitlist",res }, { status: 200 })
   } catch (error) {
     console.error("Waitlist signup error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })

@@ -166,7 +166,7 @@ export default function HomePage() {
                 <Edit3 className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
               </div>
               <h3 className="text-xs sm:text-sm lg:text-lg font-semibold text-gray-800">
-                Express Freely
+                Corners
               </h3>
               <p className="text-gray-600 text-xs sm:text-sm">
                 Share thoughts without your name

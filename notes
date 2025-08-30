@@ -1,0 +1,6 @@
+--prisma
+.npx prisma init //create schema.prisma file
+    .setup prisma DB connection in this case vercel(.env.local)w    
+.npx prisma migrate dev --name init    //this create migration file on vercel DB
+    .make shure you have .env file first.
+.npx prisma generate//generate prisma client
