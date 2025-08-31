@@ -29,7 +29,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="relative flex items-center justify-between px-4 sm:px-6 py-4 max-w-7xl mx-auto">
+      <header className="relative flex items-center justify-between px-4 py-4 max-w-7xl mx-auto">
         <div className="flex items-center">
           <HourglassAnimation />
           <div className="text-xl sm:text-2xl font-bold text-black">
@@ -57,8 +57,8 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="px-4 sm:px-6 py-8 sm:py-16 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-4 lg:gap-6 items-center">
+      <section className="px-4 py-8 sm:py-16 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight text-balance">
               Share the Wait.
@@ -74,16 +74,10 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-
-          {/* laptop - Hidden on small screens, visible on large screens */}
-          <div className="relative order-first lg:order-last hidden lg:block">
-            {" "}
-            {/* Added hidden and lg:block */}
-            {/* Updated image for the laptop screenshot */}
+          <div className="relative order-first lg:order-last hidden md:block">
             <Image
-              src={laptop} // Using the provided image directly
+              src={laptop}
               alt="WaitingWall App Screenshot"
-              // className="rounded-lg shadow-xl" // Added some styling for better visual
             />
           </div>
         </div>
@@ -92,12 +86,12 @@ export default function HomePage() {
       {/* Features Section */}
       <section
         id="features"
-        className="px-4 sm:px-6 py-12 sm:py-16 bg-gray-50 rounded-lg shadow-md mx-auto"
+        className="px-4 py-12 sm:py-16 bg-gray-50 rounded-lg shadow-md mx-auto"
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6 lg:gap-6">
             {/* Feature 1: 24-Hour Ephemeral */}
-            <div className="text-center space-y-2 sm:space-y-4 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
+            <div className="text-center space-y-2 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
                 <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
               </div>
@@ -110,7 +104,7 @@ export default function HomePage() {
             </div>
 
             {/* Feature 2: Circles */}
-            <div className="text-center space-y-2 sm:space-y-4 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
+            <div className="text-center space-y-2 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
                 <Users className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
               </div>
@@ -123,7 +117,7 @@ export default function HomePage() {
             </div>
 
             {/* Feature 3: Local & Global Trends */}
-            <div className="text-center space-y-2 sm:space-y-4 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
+            <div className="text-center space-y-2 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
                 <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
               </div>
@@ -136,7 +130,7 @@ export default function HomePage() {
             </div>
 
             {/* Feature 4: Shareable Cards */}
-            <div className="text-center space-y-2 sm:space-y-4 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
+            <div className="text-center space-y-2 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
                 <Share2 className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
               </div>
@@ -149,7 +143,7 @@ export default function HomePage() {
             </div>
 
             {/* Feature 5: Semi Anonymity */}
-            <div className="text-center space-y-2 sm:space-y-4 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
+            <div className="text-center space-y-2 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
                 <UserX className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
               </div>
@@ -161,10 +155,10 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Feature 6: Post without your name (Standardized for consistency) */}
-            <div className="text-center space-y-2 sm:space-y-4 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
+            {/* Feature 6: Corners */}
+            <div className="text-center space-y-2 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
-                <UsersRound  className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
+                <UsersRound className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
               </div>
               <h3 className="text-xs sm:text-sm lg:text-lg font-semibold text-gray-800">
                 Corners
@@ -180,7 +174,7 @@ export default function HomePage() {
       {/* How It Works Section */}
       <section
         id="how-it-works"
-        className="px-4 sm:px-6 py-12 sm:py-4 bg-gray-0 rounded-lg  mx-auto"
+        className="px-4 py-12 sm:py-16 bg-gray-0 rounded-lg mx-auto"
       >
         <div className="bg-gray-0 flex flex-col items-center justify-center px-4 py-8 sm:p-2">
           <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 lg:gap-16 items-start">
@@ -189,58 +183,46 @@ export default function HomePage() {
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 How It Works
               </h2>
-              {/* Responsive row for steps: stacks on extra-small, horizontal on small and up */}
               <div className="flex flex-col sm:flex-row justify-center md:justify-start items-center space-y-6 sm:space-y-0 sm:space-x-4 md:space-x-6">
                 <div className="flex flex-col items-center text-center max-w-[120px] sm:max-w-none">
-                  {/* Smaller icon for extra-small screens */}
                   <FileText className="w-8 h-8 sm:w-10 sm:h-10 text-gray-800 mb-2" />
-                  {/* Smaller text for extra-small screens */}
                   <p className="text-[0.6rem] sm:text-xs text-gray-700 font-medium leading-tight">
                     Sign up and start posting
                   </p>
                 </div>
-                {/* Arrow visible on small screens and up, also slightly smaller */}
                 <div className="text-gray-400 text-xl font-light hidden sm:block">
                   {">"}
                 </div>
                 <div className="flex flex-col items-center text-center max-w-[120px] sm:max-w-none">
-                  {/* Smaller icon for extra-small screens */}
                   <ThumbsUp className="w-8 h-8 sm:w-10 sm:h-10 text-gray-800 mb-2" />
-                  {/* Smaller text for extra-small screens */}
                   <p className="text-[0.6rem] sm:text-xs text-gray-700 font-medium leading-tight">
                     Like and comment on posts
                   </p>
                 </div>
-                {/* Arrow visible on small screens and up, also slightly smaller */}
                 <div className="text-gray-400 text-xl font-light hidden sm:block">
                   {">"}
                 </div>
                 <div className="flex flex-col items-center text-center max-w-[120px] sm:max-w-none">
-                  {/* Smaller icon for extra-small screens */}
                   <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-gray-800 mb-2" />
-                  {/* Smaller text for extra-small screens */}
                   <p className="text-[0.6rem] sm:text-xs text-gray-700 font-medium leading-tight">
                     Connect with your community
                   </p>
                 </div>
               </div>
-
-              {/* What People Are Saying Section */}
               <div className="max-w-4xl text-left mt-12 md:mt-12">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-6">
                   What People Are Saying
                 </h2>
                 <div className="space-y-8">
-                  {/* Removed mx-auto from EmailCaptureForm's className to allow left alignment */}
                   <EmailCaptureForm className="max-w-md" />
                 </div>
               </div>
             </div>
 
             {/* Right Column: Mobile Screen Mockups Section */}
-            <div className="flex flex-col md:flex-row gap-8 w-full py-8 md:py-12 justify-center order-2 md:order-2">
+            <div className="hidden md:flex flex-col md:flex-row gap-8 w-full py-8 md:py-12 justify-center order-2 md:order-2">
               {/* Left Mobile Screen Mockup */}
-              <div className="hidden md:flex flex-1 bg-gray-100 rounded-3xl shadow-xl overflow-hidden flex-col max-w-sm mx-auto w-full">
+              <div className="flex-1 bg-gray-100 rounded-3xl shadow-xl overflow-hidden flex-col max-w-sm mx-auto w-full">
                 {/* Top Bar */}
                 <div className="flex justify-between items-center p-4 border-b border-gray-200">
                   <h2 className="text-xl font-semibold text-gray-800">Some</h2>
@@ -305,8 +287,7 @@ export default function HomePage() {
                   <h2 className="text-xl font-semibold text-gray-800">
                     Empley
                   </h2>
-                  <Settings className="w-6 h-6 text-gray-600" />{" "}
-                  {/* Assuming settings icon */}
+                  <Settings className="w-6 h-6 text-gray-600" />
                 </div>
 
                 {/* Content Area */}
@@ -349,10 +330,8 @@ export default function HomePage() {
                   <User className="w-6 h-6 text-gray-800" />
                   <Search className="w-6 h-6 text-gray-400" />
                   <Plus className="w-6 h-6 text-gray-400" />
-                  <Users className="w-6 h-6 text-gray-400" />{" "}
-                  {/* Assuming users icon */}
-                  <MoreHorizontal className="w-6 h-6 text-gray-400" />{" "}
-                  {/* Assuming more icon */}
+                  <Users className="w-6 h-6 text-gray-400" />
+                  <MoreHorizontal className="w-6 h-6 text-gray-400" />
                 </div>
               </div>
             </div>
@@ -361,7 +340,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="px-4 sm:px-4 py-4 sm:py-3 border-t">
+      <footer className="px-4 py-4 border-t">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-600">
           <a href="#terms" className="hover:text-black">
             Terms
