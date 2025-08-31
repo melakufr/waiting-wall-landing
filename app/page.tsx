@@ -17,6 +17,7 @@ import {
   Settings,
   Bell,
   FileText,
+  UsersRound,
 } from "lucide-react";
 import { EmailCaptureForm } from "@/components/email-capture-form";
 import { MobileNav } from "@/components/mobile-nav";
@@ -163,7 +164,7 @@ export default function HomePage() {
             {/* Feature 6: Post without your name (Standardized for consistency) */}
             <div className="text-center space-y-2 sm:space-y-4 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
-                <Edit3 className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
+                <UsersRound  className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
               </div>
               <h3 className="text-xs sm:text-sm lg:text-lg font-semibold text-gray-800">
                 Corners

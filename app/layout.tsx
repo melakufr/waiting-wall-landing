@@ -4,13 +4,15 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Toaster } from "@/components/ui/toaster"
 import "./globals.css"
+import { Space_Grotesk } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "WaitingWall - Share the Wait",
   description:
     "A minimalist social space to share what you're waiting for. Post semi-anonymously, connect with friends, and explore local trends.",
-  generator: "v0.app",
+  generator: "WaitingWall",
 }
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -19,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={spaceGrotesk.className}>
         {children}
         <Toaster />
       </body>
