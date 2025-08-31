@@ -35,3 +35,20 @@
 
     -Environment variables(Settings > Environment Variables.) vercel, what you use in local env and what vercel gives you.
        
+
+    ==Domain name
+    1-To connect the domain waitingwall.com to Vercel, update your domain’s nameservers to the following:
+        ns1.vercel-dns.com
+        ns2.vercel-dns.com
+
+    2-Add the domain to your Vercel project:
+        .in project , Settings > Domains > Add Domain
+        .Enter your domain name (e.g., waitingwall.com)
+        .Select the project you want to connect the domain to (production)
+        .Click Add Domain
+
+    3- Enable vercel Domain
+        .out side project, click Domains Tab
+        .edit the domain (waitingwall.com)
+        .click Enable Domain
+        
