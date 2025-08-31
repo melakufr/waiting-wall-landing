@@ -4,11 +4,9 @@ import {
   MapPin,
   Share2,
   UserX,
-  Edit3,
   MessageSquare,
   ThumbsUp,
   Plus,
-  ChevronRight,
   User,
   Search,
   MoreHorizontal,
@@ -24,6 +22,13 @@ import { MobileNav } from "@/components/mobile-nav";
 import { HourglassAnimation } from "@/components/hourglass-animation";
 import laptop from "@/public/laptop.png";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home | WaitingWall",
+  description:
+    "A minimalist social space to share what you're waiting for. Post semi-anonymously, connect with friends, and explore local trends.",
+};
 
 export default function HomePage() {
   return (
@@ -75,10 +80,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="relative order-first lg:order-last hidden md:block">
-            <Image
-              src={laptop}
-              alt="WaitingWall App Screenshot"
-            />
+            <Image src={laptop} alt="WaitingWall App Screenshot" />
           </div>
         </div>
       </section>
