@@ -1,8 +1,11 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Toaster } from "@/components/ui/toaster"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/toaster";
+import "./globals.css";
 import { Space_Grotesk } from "next/font/google";
+import {
+  ClerkProvider,
+} from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "WaitingWall | %s",
@@ -11,20 +14,22 @@ export const metadata: Metadata = {
   generator: "WaitingWall",
   applicationName: "WaitingWall",
   keywords: ["WaitingWall", "WaitingWall App", "WaitingWall Social"],
-}
+};
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={spaceGrotesk.className}>
-        {children}
-        <Toaster />
-      </body>
-    </html>
-  )
+    <ClerkProvider>
+      <html lang="en">
+        <body className={spaceGrotesk.className}>
+          {children}
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
+  );
 }

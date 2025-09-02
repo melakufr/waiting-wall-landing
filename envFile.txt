@@ -14,3 +14,6 @@ POSTGRES_PASSWORD=npg_hcaDnwux5f2s
 POSTGRES_DATABASE=neondb
 POSTGRES_URL_NO_SSL=postgresql://neondb_owner:npg_hcaDnwux5f2s@ep-patient-dew-adimbpgz-pooler.c-2.us-east-1.aws.neon.tech/neondb
 POSTGRES_PRISMA_URL=postgresql://neondb_owner:npg_hcaDnwux5f2s@ep-patient-dew-adimbpgz-pooler.c-2.us-east-1.aws.neon.tech/neondb?connect_timeout=15&sslmode=require
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_bmVhdC1nb3NoYXdrLTcyLmNsZXJrLmFjY291bnRzLmRldiQ
+CLERK_SECRET_KEY=sk_test_JAVq6w2LCDK8jB6IdZwYfMoo5hZg58XWhdtiwbWVSk

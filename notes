@@ -52,3 +52,13 @@
         .edit the domain (waitingwall.com)
         .click Enable Domain
         
+    ==cleak setup
+    1-create clerk account
+    2-follow quick guide
+        .Install @clerk/nextjs
+             npm install @clerk/nextjs
+        .setup clerk API key
+            ..env file
+        .Update middleware.ts
+        .Add provider in layout.ts
+            .add clerk components // in this project navbar, in page.tsx

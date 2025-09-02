@@ -23,6 +23,7 @@ import { HourglassAnimation } from "@/components/hourglass-animation";
 import laptop from "@/public/laptop.png";
 import Image from "next/image";
 import { Metadata } from "next";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Home | WaitingWall",
@@ -37,7 +38,7 @@ export default function HomePage() {
       <header className="relative flex items-center justify-between px-4 py-4 max-w-7xl mx-auto">
         <div className="flex items-center">
           <HourglassAnimation />
-          <div className="text-xl sm:text-2xl font-bold text-black">
+          <div className="text-2xl sm:text-3xl font-bold text-black">
             WaitingWall
           </div>
         </div>
@@ -48,14 +49,18 @@ export default function HomePage() {
           <a href="#how-it-works" className="text-gray-700 hover:text-black">
             How It Works
           </a>
-          <a href="#community" className="text-gray-700 hover:text-black">
-            Community
-          </a>
-          <a href="#faq" className="text-gray-700 hover:text-black">
-            FAQ
-          </a>
           <a href="#signin" className="text-gray-700 hover:text-black">
-            Sign in
+               <SignedOut>
+              <SignInButton />
+              {/* <SignUpButton>
+                <button className="bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                  Sign Up
+                </button>
+              </SignUpButton> */}
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </a>
         </nav>
         <MobileNav />
@@ -118,6 +123,19 @@ export default function HomePage() {
               </p>
             </div>
 
+                  {/* Feature 6: Corners */}
+            <div className="text-center space-y-2 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
+                <UsersRound className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
+              </div>
+              <h3 className="text-xs sm:text-sm lg:text-lg font-semibold text-gray-800">
+                Corners
+              </h3>
+              <p className="text-gray-600 text-xs sm:text-sm">
+                Share thoughts without your name
+              </p>
+            </div>
+
             {/* Feature 3: Local & Global Trends */}
             <div className="text-center space-y-2 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
@@ -156,19 +174,7 @@ export default function HomePage() {
                 Post without revealing your identity
               </p>
             </div>
-
-            {/* Feature 6: Corners */}
-            <div className="text-center space-y-2 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
-                <UsersRound className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
-              </div>
-              <h3 className="text-xs sm:text-sm lg:text-lg font-semibold text-gray-800">
-                Corners
-              </h3>
-              <p className="text-gray-600 text-xs sm:text-sm">
-                Share thoughts without your name
-              </p>
-            </div>
+          
           </div>
         </div>
       </section>
@@ -345,10 +351,10 @@ export default function HomePage() {
       <footer className="px-4 py-4 border-t">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-gray-600">
           <a href="#terms" className="hover:text-black">
-            Terms
+            Terms & Privacy
           </a>
           <a href="#privacy" className="hover:text-black">
-            Privacy
+           FAQ
           </a>
           <span>© 2025</span>
         </div>
