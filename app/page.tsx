@@ -18,12 +18,13 @@ import {
   UsersRound,
 } from "lucide-react";
 import { EmailCaptureForm } from "@/components/email-capture-form";
+import { RegisterInvestorForm } from "@/components/create-investor";
 import { MobileNav } from "@/components/mobile-nav";
 import { HourglassAnimation } from "@/components/hourglass-animation";
 import laptop from "@/public/laptop.png";
 import Image from "next/image";
 import { Metadata } from "next";
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+
 
 export const metadata: Metadata = {
   title: "Home | WaitingWall",
@@ -49,25 +50,23 @@ export default function HomePage() {
           <a href="#how-it-works" className="text-gray-700 hover:text-black">
             How It Works
           </a>
-          <a href="#signin" className="text-gray-700 hover:text-black">
-               <SignedOut>
-              <SignInButton />
+          <a href="/admin/auth/login" className="text-gray-700 hover:text-black">
+          <button className="bg-white border border-gray-700 text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                  Sign In
+                </button>
               {/* <SignUpButton>
                 <button className="bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
                   Sign Up
                 </button>
               </SignUpButton> */}
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
+           
           </a>
         </nav>
         <MobileNav />
       </header>
 
       {/* Hero Section */}
-      <section className="px-4 py-8 sm:py-16 max-w-7xl mx-auto">
+      {/* <section className="px-4 py-8 sm:py-16 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight text-balance">
@@ -88,8 +87,41 @@ export default function HomePage() {
             <Image src={laptop} alt="WaitingWall App Screenshot" />
           </div>
         </div>
-      </section>
-
+      </section> */}
+{/* Hero Section */}
+<section className="px-4 py-8 sm:py-16 max-w-7xl mx-auto">
+  <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight text-balance">
+        Share the Wait.
+      </h1>
+      <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+        A minimalist social space to share what you're waiting for. Post
+        semi-anonymously, connect with friends, and explore local trends.
+      </p>
+      <div className="space-y-4">
+        <EmailCaptureForm className="max-w-md mx-auto lg:mx-0" />
+        <p className="text-sm text-gray-500">
+          We'll never share your email.
+        </p>
+      </div>
+      
+      {/* Investor Form Section */}
+      <div className="pt-6 border-t border-gray-100">
+        <h3 className="text-lg font-semibold text-gray-800 mb-3">
+          For Investors
+        </h3>
+        <RegisterInvestorForm className="max-w-md mx-auto lg:mx-0" />
+        <p className="text-sm text-gray-500 mt-2">
+          Join our investor network. We respect your privacy.
+        </p>
+      </div>
+    </div>
+    <div className="relative order-first lg:order-last hidden md:block">
+      <Image src={laptop} alt="WaitingWall App Screenshot" />
+    </div>
+  </div>
+</section>
       {/* Features Section */}
       <section
         id="features"

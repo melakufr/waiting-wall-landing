@@ -1,6 +1,35 @@
+"use server";
 import db from "@/util/db";
 import { Subscribers } from "@prisma/client";
 
+import { revalidateTag } from "next/cache";
+import { cookies } from "next/headers";
+import { signIn, signOut, auth } from "@/auth";
+import { AuthError } from "next-auth";
+import { z } from "zod";
+import { unstable_cache } from "next/cache";
+
+import { redirect, RedirectType } from "next/navigation";
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData
+) {
+  try {
+    await signIn("credentials", formData);
+    console.log("customerrfrom", "from");
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case "CredentialsSignin":
+          return "Invalid credentials.";
+        default:
+          return "Something went wrong.";
+      }
+    }
+    throw error;
+  }
+}
 export const addSubscriberAction = async (formData: {
   email: string;
 }): Promise<{ success: boolean; data?: Subscribers; error?: string }> => {

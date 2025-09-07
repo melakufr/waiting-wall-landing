@@ -1,0 +1,225 @@
+"use client";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+  useTransition,
+} from "react";
+import dynamic from "next/dynamic";
+
+// Skeleton Components
+export const IconSkeleton = () => <div className="bg-gray-300 size-6"></div>;
+
+export const PaginationSkeleton = () => (
+  <div className="flex flex-wrap justify-center items-center gap-2 mt-4 animate-pulse">
+    {[...Array(4)].map((_, i) => (
+      <div key={i} className="h-10 w-10 bg-gray-300 rounded"></div>
+    ))}
+    <div className="flex items-center gap-1">
+      <div className="h-5 w-10 bg-gray-300 rounded"></div>
+      <div className="h-5 w-20 bg-gray-300 rounded"></div>
+    </div>
+    <div className="flex items-center gap-1">
+      <div className="h-5 w-20 bg-gray-300 rounded"></div>
+      <div className="h-8 w-16 bg-gray-300 rounded"></div>
+    </div>
+  </div>
+);
+
+// Dynamic Import for Pagination
+const Pagination = dynamic(() => import("@/components/layout/Pagination"), {
+  loading: () => <PaginationSkeleton />,
+  ssr: false,
+});
+
+type Column = {
+  label: string;
+  accessorKey: string;
+  cell?: (rowData: any) => React.ReactNode;
+};
+
+export interface CustomTableProps {
+  data: any[];
+  columns: Column[];
+  options?: { label: string; value: string }[];
+  pageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  onOptionChange?: (selectedOption: string) => void;
+  onTableDateRangeChange?: (dateRange: { start: Date; end: Date }) => void;
+  setPagination?: React.Dispatch<
+    React.SetStateAction<{ pageIndex: number; pageSize: number }>
+  >;
+}
+
+// Utility functions
+const getNestedValue = (obj: any, path: string) => {
+  return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+};
+
+const sortData = (data: any[], property: string, order: 'asc' | 'desc') => {
+  return [...data].sort((a, b) => {
+    const aValue = getNestedValue(a, property);
+    const bValue = getNestedValue(b, property);
+    
+    if (aValue === bValue) return 0;
+    
+    const comparison = aValue > bValue ? 1 : -1;
+    return order === 'asc' ? comparison : -comparison;
+  });
+};
+
+const CustomTable: React.FC<CustomTableProps> = ({
+  data,
+  columns,
+  pageIndex = 0,
+  pageSize = 10,
+  pageCount = 0,
+  setPagination,
+  options,
+  onOptionChange,
+  onTableDateRangeChange,
+}) => {
+  const [order, setOrder] = useState<"asc" | "desc">("asc");
+  const [orderBy, setOrderBy] = useState<string>("");
+  const [isPending, startTransition] = useTransition();
+  const [sortedData, setSortedData] = useState<any[]>(data);
+
+  // Handle sort with transition
+  const handleRequestSort = useCallback(
+    (property: string) => {
+      const newOrder = orderBy === property && order === "asc" ? "desc" : "asc";
+      setOrder(newOrder);
+      setOrderBy(property);
+
+      startTransition(() => {
+        const newSortedData = sortData(data, property, newOrder);
+        setSortedData(newSortedData);
+      });
+    },
+    [data, order, orderBy]
+  );
+
+  // Sync with external data changes
+  useEffect(() => {
+    if (!orderBy) {
+      setSortedData(data);
+    } else {
+      startTransition(() => {
+        const newSortedData = sortData(data, orderBy, order);
+        setSortedData(newSortedData);
+      });
+    }
+  }, [data, order, orderBy]);
+
+  const handlePageChange = useCallback(
+    (newPageIndex: number) => {
+      setPagination?.((prev) => ({ ...prev, pageIndex: newPageIndex }));
+    },
+    [setPagination]
+  );
+
+  const handlePageSizeChange = useCallback(
+    (newPageSize: number) => {
+      if (setPagination && newPageSize > 0) {
+        setPagination({ pageIndex: 0, pageSize: newPageSize });
+      }
+    },
+    [setPagination]
+  );
+
+  return (
+    <div className="container mx-auto p-4 w-full relative">
+      {/* Loading indicator when sorting is in progress */}
+      {isPending && (
+        <div className="absolute inset-0 bg-black bg-opacity-10 flex items-center justify-center z-50 pointer-events-none">
+          <div className="bg-white p-4 rounded shadow-lg flex items-center gap-2">
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-500"></div>
+            <span>Sorting data...</span>
+          </div>
+        </div>
+      )}
+
+      {/* Table Section */}
+      <div
+        className={`overflow-x-auto bg-white shadow-md rounded-md border border-gray-200 ${
+          isPending ? "opacity-80" : ""
+        }`}
+      >
+        <table className="min-w-full table-auto" aria-label="Data table">
+          <thead className="bg-gray-100 text-gray-800">
+            <tr>
+              {columns.map((col) => (
+                <th
+                  key={col.accessorKey}
+                  className="px-4 py-2 text-left border-b border-gray-200 cursor-pointer hover:bg-gray-200"
+                  onClick={() => !isPending && handleRequestSort(col.accessorKey)}
+                >
+                  <div className="flex items-center">
+                    {col.label}
+                    {orderBy === col.accessorKey && (
+                      <span className="ml-1">
+                        {order === "asc" ? "↑" : "↓"}
+                      </span>
+                    )}
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+
+          <tbody>
+            {sortedData.length > 0 ? (
+              sortedData.map((row, index) => (
+                <tr
+                  key={`row-${index}`}
+                  className="text-gray-700 hover:bg-gray-50"
+                >
+                  {columns.map((col) => (
+                    <td
+                      key={`${col.accessorKey}-${index}`}
+                      className="px-4 py-2 border-b border-gray-200"
+                    >
+                      <span className="block sm:hidden font-semibold text-gray-600">
+                        {col.label}:
+                      </span>
+                      {col.cell
+                        ? col.cell(row)
+                        : getNestedValue(row, col.accessorKey) || "-"}
+                    </td>
+                  ))}
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td
+                  colSpan={columns.length}
+                  className="px-4 py-8 text-center text-gray-500"
+                >
+                  No data available
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Pagination Section */}
+      {pageCount > 0 && (
+        <div className={`mt-4 ${isPending ? "opacity-70" : ""}`}>
+          <Pagination
+            pageIndex={pageIndex}
+            pageCount={pageCount}
+            pageSize={pageSize}
+            onPageChange={handlePageChange}
+            onPageSizeChange={handlePageSizeChange}
+            disabled={isPending}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default CustomTable;
