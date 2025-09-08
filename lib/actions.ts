@@ -1,6 +1,6 @@
 "use server";
 import db from "@/util/db";
-import { Subscribers } from "@prisma/client";
+import { Investor, Subscribers } from "@prisma/client";
 
 import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
@@ -93,3 +93,51 @@ export const getSubscribersAction = async (): Promise<{ success: boolean; data?:
   }
 };
 
+export const addInvestorsAction = async (formData: {
+  email: string; name: string, location: string, ticketSize: number
+}): Promise<{ success: boolean; data?: Investor; error?: string }> => {
+
+  try {
+    const { email, name, location, ticketSize } = formData;
+    const res = await db.investor.create({
+      data: {
+        ...formData,
+        createdAt: new Date(),
+      },
+    });
+    return { success: true, data: res };
+  } catch (error) {
+    console.error("Error adding investor:", error);
+    return {
+      success: false,
+      error:
+        error instanceof Error ? error.message : "Failed to add investor",
+    };
+  }
+};
+
+
+//check if exist on DB
+export const checkInvestorAction = async (formData: {
+  email: string;
+}): Promise<{ success: boolean; data?: Investor; error?: string }> => {
+  try {
+    const { email } = formData;
+    const res = await db.investor.findUnique({
+      where: {
+        email,
+      },
+    });
+    if (!res) {
+      return { success: true, error: "investor not found" };
+    }
+    return { success: true, data: res };
+  } catch (error) {
+    console.error("Error checking investor:", error);
+    return {
+      success: false,
+      error:
+        error instanceof Error ? error.message : "Failed to check investor",
+    };
+  }
+};

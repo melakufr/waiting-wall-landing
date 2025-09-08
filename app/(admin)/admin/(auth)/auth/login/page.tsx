@@ -6,5 +6,11 @@ export const metadata: Metadata = {
   title: "Login",
 };
 export default function LoginPage() {
-  return <LoginView />;
+  return (
+    <>
+    <div className="flex min-h-screen items-center justify-center bg-muted/40 p-4">
+      <LoginView />
+    </div>
+    </>
+  );
 }

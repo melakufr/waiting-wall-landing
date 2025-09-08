@@ -24,6 +24,7 @@ import { HourglassAnimation } from "@/components/hourglass-animation";
 import laptop from "@/public/laptop.png";
 import Image from "next/image";
 import { Metadata } from "next";
+import Link from "next/link";
 
 
 export const metadata: Metadata = {
@@ -50,17 +51,17 @@ export default function HomePage() {
           <a href="#how-it-works" className="text-gray-700 hover:text-black">
             How It Works
           </a>
-          <a href="/admin/auth/login" className="text-gray-700 hover:text-black">
-          <button className="bg-white border border-gray-700 text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-                  Sign In
-                </button>
-              {/* <SignUpButton>
+          <Link href="/admin/auth/login" className="text-gray-700 hover:text-black">
+            <button className="bg-white border border-gray-700 text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+              Sign In
+            </button>
+            {/* <SignUpButton>
                 <button className="bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
                   Sign Up
                 </button>
               </SignUpButton> */}
-           
-          </a>
+
+          </Link>
         </nav>
         <MobileNav />
       </header>
@@ -88,40 +89,31 @@ export default function HomePage() {
           </div>
         </div>
       </section> */}
-{/* Hero Section */}
-<section className="px-4 py-8 sm:py-16 max-w-7xl mx-auto">
-  <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-    <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight text-balance">
-        Share the Wait.
-      </h1>
-      <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
-        A minimalist social space to share what you're waiting for. Post
-        semi-anonymously, connect with friends, and explore local trends.
-      </p>
-      <div className="space-y-4">
-        <EmailCaptureForm className="max-w-md mx-auto lg:mx-0" />
-        <p className="text-sm text-gray-500">
-          We'll never share your email.
-        </p>
-      </div>
-      
-      {/* Investor Form Section */}
-      <div className="pt-6 border-t border-gray-100">
-        <h3 className="text-lg font-semibold text-gray-800 mb-3">
-          For Investors
-        </h3>
-        <RegisterInvestorForm className="max-w-md mx-auto lg:mx-0" />
-        <p className="text-sm text-gray-500 mt-2">
-          Join our investor network. We respect your privacy.
-        </p>
-      </div>
-    </div>
-    <div className="relative order-first lg:order-last hidden md:block">
-      <Image src={laptop} alt="WaitingWall App Screenshot" />
-    </div>
-  </div>
-</section>
+      {/* Hero Section */}
+      <section className="px-4 py-8 sm:py-16 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight text-balance">
+              Share the Wait.
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              A minimalist social space to share what you're waiting for. Post
+              semi-anonymously, connect with friends, and explore local trends.
+            </p>
+            <div className="space-y-4">
+              <EmailCaptureForm className="max-w-md mx-auto lg:mx-0" />
+              <p className="text-sm text-gray-500">
+                We'll never share your email.
+              </p>
+            </div>
+
+
+          </div>
+          <div className="relative order-first lg:order-last hidden md:block">
+            <Image src={laptop} alt="WaitingWall App Screenshot" />
+          </div>
+        </div>
+      </section>
       {/* Features Section */}
       <section
         id="features"
@@ -155,7 +147,7 @@ export default function HomePage() {
               </p>
             </div>
 
-                  {/* Feature 6: Corners */}
+            {/* Feature 6: Corners */}
             <div className="text-center space-y-2 p-1 rounded-md transition duration-300 ease-in-out hover:bg-white hover:shadow-lg">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
                 <UsersRound className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
@@ -206,7 +198,7 @@ export default function HomePage() {
                 Post without revealing your identity
               </p>
             </div>
-          
+
           </div>
         </div>
       </section>
@@ -256,6 +248,17 @@ export default function HomePage() {
                 <div className="space-y-8">
                   <EmailCaptureForm className="max-w-md" />
                 </div>
+              </div>
+
+              {/* Investor Form Section */}
+              <div className="pt-6 border-t border-gray-100">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-6">
+                  Investors
+                </h2>
+                <RegisterInvestorForm className="max-w-md mx-auto lg:mx-0" />
+                <p className="text-sm text-gray-500 mt-2">
+                  Join our investor network. We respect your privacy.
+                </p>
               </div>
             </div>
 
@@ -386,7 +389,7 @@ export default function HomePage() {
             Terms & Privacy
           </a>
           <a href="#privacy" className="hover:text-black">
-           FAQ
+            FAQ
           </a>
           <span>© 2025</span>
         </div>
