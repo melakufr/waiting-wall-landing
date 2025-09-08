@@ -1,12 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { signIn } from "next-auth/react"
-import { z } from "zod"
+import { z } from "zod" 
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button"   
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Alert, AlertDescription } from "@/components/ui/alert"
@@ -22,20 +22,10 @@ type LoginFormValues = z.infer<typeof loginSchema>
 
 export default function LoginPage() {
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get("callbackUrl") || "/subscribers"
+  const callbackUrl = "/subscribers"
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  // Handle error from OAuth providers
-  const errorParam = searchParams.get("error")
-  if (errorParam && !error) {
-    setError(
-      errorParam === "OAuthAccountNotLinked"
-        ? "Email already in use with a different provider"
-        : "An error occurred during sign in",
-    )
-  }
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
