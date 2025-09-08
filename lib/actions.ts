@@ -141,3 +141,18 @@ export const checkInvestorAction = async (formData: {
     };
   }
 };
+
+//get all Investors
+export const getInvestorsAction = async (): Promise<{ success: boolean; data?: Investor[]; error?: string }> => {
+  try {
+    const res = await db.investor.findMany();
+    return { success: true, data: res };
+  } catch (error) {
+    console.error("Error getting investors:", error);
+    return {
+      success: false,
+      error:
+        error instanceof Error ? error.message : "Failed to get investors",
+    };
+  }
+};

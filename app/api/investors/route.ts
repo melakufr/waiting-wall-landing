@@ -1,4 +1,4 @@
-import { addInvestorsAction, checkInvestorAction } from "@/lib/actions";
+import { addInvestorsAction, checkInvestorAction, getInvestorsAction } from "@/lib/actions";
 import { type NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
@@ -33,6 +33,33 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         message: "Successfully added to investor",
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Waitlist signup error:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    const result = await getInvestorsAction();
+    console.log(result);
+    if (!result.success) {
+      return NextResponse.json(
+        { error: result.error || "Failed to get investors" },
+        { status: 400 }
+      );
+    }
+
+    return NextResponse.json(
+      {
+        message: "all investors",
+        data: result.data,
       },
       { status: 200 }
     );
