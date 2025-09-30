@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 import {
   Clock,
   Users,
@@ -21,7 +29,8 @@ import {
 import { EmailCaptureForm } from "@/components/email-capture-form";
 import { MobileNav } from "@/components/mobile-nav";
 import { HourglassAnimation } from "@/components/hourglass-animation";
-import laptop from "@/public/laptop.png";
+import laptop from "@/public/laptops.jpg";
+import phones from "@/public/phones.jpg"; 
 import Image from "next/image";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -36,10 +45,10 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="flex items-center justify-between px-4 py-4 max-w-7xl mx-auto">
+      <header className="relative flex items-center justify-between px-4 py-4 max-w-7xl mx-auto">
         <div className="flex items-center">
           <HourglassAnimation />
-          <div className="text-3xl sm:text-4xl font-bold text-black">
+          <div className="text-2xl sm:text-3xl font-bold text-black">
             WaitingWall
           </div>
         </div>
@@ -51,16 +60,23 @@ export default function HomePage() {
             How It Works
           </a>
           <Link href="/admin/auth/login" className="text-gray-700 hover:text-black">
-            <button className="bg-white border border-gray-700 text-gray-700 rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+            <button className="bg-white border border-gray-700 text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
               Sign In
             </button>
+            {/* <SignUpButton>
+                <button className="bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                  Sign Up
+                </button>
+              </SignUpButton> */}
+
           </Link>
         </nav>
         <MobileNav />
       </header>
 
-      {/* Hero Section */}
-      <section className="px-4 py-8 sm:py-16 max-w-7xl mx-auto">
+
+     {/* Hero Section */}
+     <section className="px-4 py-8 sm:py-16 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight text-balance">
@@ -75,33 +91,19 @@ export default function HomePage() {
                 We'll never share your email.
               </p>
             </div>
+
+
           </div>
-          <div className="relative order-first lg:order-last">
-            <div className="block md:hidden max-w-[300px] mx-auto">
-              <div className="bg-gray-100 rounded-2xl p-4 shadow-lg">
-                <div className="bg-white rounded-lg p-4 space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gray-200 rounded-full"></div>
-                    <div className="h-4 bg-gray-200 rounded w-32"></div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-4 bg-gray-200 rounded w-full"></div>
-                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                  </div>
-                  <div className="flex space-x-3">
-                    <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-                    <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="hidden md:block">
-              <Image src={laptop} alt="WaitingWall App Screenshot" />
-            </div>
+          <div className="relative order-first lg:order-last hidden md:block">
+            <Image 
+              src={laptop} 
+              alt="WaitingWall App Screenshot" 
+              className="w-full max-w-2xl mx-auto"
+              priority
+            />
           </div>
         </div>
       </section>
-
       {/* Features Section */}
       <section
         id="features"
@@ -229,120 +231,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: Mobile Screen Mockups Section */}
-            <div className="hidden md:flex flex-col md:flex-row gap-8 w-full py-8 md:py-12 justify-center order-2 md:order-2">
-              {/* Left Mobile Screen Mockup */}
-              <div className="flex-1 bg-gray-100 rounded-3xl shadow-xl overflow-hidden flex-col max-w-sm mx-auto w-full">
-                {/* Top Bar */}
-                <div className="flex justify-between items-center p-4 border-b border-gray-200">
-                  <h2 className="text-xl font-semibold text-gray-800">Some</h2>
-                  <Bell className="w-6 h-6 text-gray-600" />
-                </div>
-
-                {/* Content Area */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                  {/* Card 1 */}
-                  <div className="bg-white p-3 rounded-xl shadow-sm border border-gray-100 space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                        <User className="w-4 h-4 text-gray-500" />
-                      </div>
-                      <div className="flex-1 h-4 bg-gray-200 rounded"></div>
-                    </div>
-                    <p className="text-sm text-gray-800">
-                      Warning for my eating for order
-                    </p>
-                    <div className="flex space-x-2">
-                      <div className="w-5 h-5 bg-gray-200 rounded-full"></div>
-                      <div className="w-5 h-5 bg-gray-200 rounded-full"></div>
-                    </div>
-                  </div>
-
-                  {/* Card 2 */}
-                  <div className="bg-white p-3 rounded-xl shadow-sm border border-gray-100 space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                        <User className="w-4 h-4 text-gray-500" />
-                      </div>
-                      <div className="flex-1 h-4 bg-gray-200 rounded"></div>
-                    </div>
-                    <p className="text-sm text-gray-800">
-                      Coounnd with your clam-óarore
-                    </p>
-                    <div className="flex space-x-2">
-                      <div className="w-5 h-5 bg-gray-200 rounded-full"></div>
-                      <div className="w-5 h-5 bg-gray-200 rounded-full"></div>
-                    </div>
-                  </div>
-
-                  {/* Placeholder for more content */}
-                  <div className="h-16 bg-gray-100 rounded-lg"></div>
-                  <div className="h-16 bg-gray-100 rounded-lg"></div>
-                </div>
-
-                {/* Bottom Navigation */}
-                <div className="flex justify-around items-center p-3 border-t border-gray-200 bg-white">
-                  <Home className="w-6 h-6 text-gray-800" />
-                  <Search className="w-6 h-6 text-gray-400" />
-                  <Plus className="w-6 h-6 text-gray-400" />
-                  <MessageSquare className="w-6 h-6 text-gray-400" />
-                  <User className="w-6 h-6 text-gray-400" />
-                </div>
-              </div>
-
-              {/* Right Mobile Screen Mockup */}
-              <div className="flex-1 bg-gray-100 rounded-3xl shadow-xl overflow-hidden flex flex-col max-w-xs mx-auto w-full h-96 mt-7">
-                {/* Top Bar */}
-                <div className="flex justify-between items-center p-4 border-b border-gray-200">
-                  <h2 className="text-xl font-semibold text-gray-800">
-                    Empley
-                  </h2>
-                  <Settings className="w-6 h-6 text-gray-600" />
-                </div>
-
-                {/* Content Area */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                  {/* Card 1 */}
-                  <div className="bg-white p-3 rounded-xl shadow-sm border border-gray-100 space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <Globe className="w-5 h-5 text-gray-600" />
-                      <span className="text-sm font-medium text-gray-800">
-                        Gecaues
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-800">
-                      Will shulking ane wise t'nnce
-                    </p>
-                  </div>
-
-                  {/* Card 2 */}
-                  <div className="bg-white p-3 rounded-xl shadow-sm border border-gray-100 space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                        <User className="w-4 h-4 text-gray-500" />
-                      </div>
-                      <span className="text-sm font-medium text-gray-800">
-                        4ramo thom
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-800">
-                      4 coor opce sleet ceay to avand
-                    </p>
-                  </div>
-
-                  {/* Placeholder for more content */}
-                  <div className="h-20 bg-gray-100 rounded-lg"></div>
-                  <div className="h-20 bg-gray-100 rounded-lg"></div>
-                </div>
-
-                {/* Bottom Navigation */}
-                <div className="flex justify-around items-center p-3 border-t border-gray-200 bg-white">
-                  <User className="w-6 h-6 text-gray-800" />
-                  <Search className="w-6 h-6 text-gray-400" />
-                  <Plus className="w-6 h-6 text-gray-400" />
-                  <Users className="w-6 h-6 text-gray-400" />
-                  <MoreHorizontal className="w-6 h-6 text-gray-400" />
-                </div>
+            {/* Right Column: Phones Image Section */}
+            <div className="hidden md:flex flex-col md:flex-row gap-8 w-full py-8 md:py-12 justify-center items-center order-2 md:order-2">
+              <div className="relative w-full max-w-md">
+                <Image 
+                  src={phones} 
+                  alt="WaitingWall Mobile App Screenshots" 
+                  className="w-full h-auto"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -389,3 +286,15 @@ export default function HomePage() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
