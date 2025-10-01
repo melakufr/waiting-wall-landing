@@ -246,6 +246,16 @@ export default function HomePage() {
                     Like and comment on posts
                   </p>
                 </div>
+
+                 <div className="text-gray-400 text-xl font-light hidden sm:block">
+                  {">"}
+                </div>
+                <div className="flex flex-col items-center text-center max-w-[120px] sm:max-w-none">
+                  <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-gray-800 mb-2" />
+                  <p className="text-xs sm:text-xs text-gray-700 font-medium leading-tight">
+                    Connect with your community
+                  </p>
+                </div>
               </div>
               <div className="max-w-4xl text-left">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-6">
