@@ -1,9 +1,14 @@
+
+
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, FileText, Shield, Lock } from "lucide-react";
+import { ArrowLeft, FileText } from "lucide-react";
+import { EMAIL_SUPPORT,EFFECTIVE_DATE } from "@/lib/const";
+
+
 
 export const metadata: Metadata = {
-  title: "Terms of Service | WaitingWall",
+  title: "Terms & Conditions | WaitingWall",
   description: "Terms and conditions for using WaitingWall service.",
 };
 
@@ -26,70 +31,55 @@ export default function TermsPage() {
           <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <FileText className="w-8 h-8 text-gray-700" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Terms of Service</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Terms & Conditions</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Last updated: {new Date().getFullYear()}
+            Effective: {EFFECTIVE_DATE}
           </p>
         </div>
 
         <div className="prose prose-lg max-w-none">
           <div className="grid gap-8">
-            {/* Section 1 */}
+            {/* Welcome Section */}
             <section className="bg-gray-50 rounded-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center gap-3">
-                <Shield className="w-6 h-6" />
-                1. Acceptance of Terms
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Welcome to WaitingWall (Prototype)
               </h2>
               <p className="text-gray-700 mb-4">
-                By accessing and using WaitingWall, you accept and agree to be bound by the terms and provision of this agreement.
+                By using this site, you agree to the following terms and conditions:
               </p>
             </section>
 
-            {/* Section 2 */}
+            {/* Content Guidelines */}
             <section className="bg-gray-50 rounded-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. User Responsibilities</h2>
-              <p className="text-gray-700 mb-4">
-                You are responsible for maintaining the confidentiality of your account and password and for restricting access to your computer.
-              </p>
-              <ul className="text-gray-700 list-disc list-inside space-y-2">
-                <li>You must be at least 13 years old to use this service</li>
-                <li>You may not use the service for any illegal purpose</li>
-                <li>You are responsible for all content you post</li>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Content & Usage
+              </h2>
+              <ul className="text-gray-700 list-disc list-inside space-y-3">
+                <li>Posts last 24 hours only</li>
+                <li>You may post anonymously or with a username</li>
+                <li>Do not post harmful, offensive, or illegal content</li>
+                <li>This is an experimental version — features may change anytime</li>
+                <li>WaitingWall is not responsible for user content</li>
               </ul>
             </section>
 
-            {/* Section 3 */}
+            {/* Consequences */}
             <section className="bg-gray-50 rounded-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center gap-3">
-                <Lock className="w-6 h-6" />
-                3. Content Guidelines
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Platform Misuse
               </h2>
-              <p className="text-gray-700 mb-4">
-                All content posted on WaitingWall must comply with our community guidelines:
-              </p>
-              <ul className="text-gray-700 list-disc list-inside space-y-2">
-                <li>No hate speech or harassment</li>
-                <li>No spam or commercial content</li>
-                <li>Respect other users' privacy</li>
-                <li>No illegal content</li>
-              </ul>
-            </section>
-
-            {/* Section 4 */}
-            <section className="bg-gray-50 rounded-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Service Modifications</h2>
               <p className="text-gray-700">
-                WaitingWall reserves the right to modify or discontinue, temporarily or permanently, the service with or without notice.
+                If you misuse the platform, we may remove your posts or block your access.
               </p>
             </section>
 
             {/* Contact */}
             <div className="text-center mt-8 p-6 border rounded-lg">
               <p className="text-gray-700">
-                Questions about our Terms of Service?{" "}
-                <a href="mailto:legal@waitingwall.com" className="text-black font-semibold hover:underline">
-                  Contact us
-                </a>
+                Questions about our Terms & Conditions?{" "}
+                <span className="text-black font-semibold">
+                  Contact us: {EMAIL_SUPPORT}
+                </span>
               </p>
             </div>
           </div>

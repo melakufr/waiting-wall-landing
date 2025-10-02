@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Shield, Eye, Database, User } from "lucide-react";
+import { ArrowLeft, Shield } from "lucide-react";
+import { EMAIL_SUPPORT } from "@/lib/const";
+
+
 
 export const metadata: Metadata = {
   title: "Privacy Policy | WaitingWall",
@@ -28,80 +31,37 @@ export default function PrivacyPage() {
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We respect your privacy and are committed to protecting your personal data.
+            We value your privacy. In this prototype stage:
           </p>
         </div>
 
         <div className="prose prose-lg max-w-none">
           <div className="grid gap-8">
-            {/* Data Collection */}
+            {/* Privacy Practices */}
             <section className="bg-gray-50 rounded-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center gap-3">
-                <Database className="w-6 h-6" />
-                Data We Collect
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Our Privacy Practices
+              </h2>
+              <ul className="text-gray-700 list-disc list-inside space-y-3">
+                <li>We only collect your email (for signup or interest)</li>
+                <li>Posts disappear after 24 hours (some may stay briefly in logs for testing)</li>
+                <li>We don't sell or share your data</li>
+                <li>This site uses basic analytics to understand usage</li>
+              </ul>
+            </section>
+
+            {/* Contact & Future */}
+            <section className="bg-gray-50 rounded-lg p-6">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Contact & Future Updates
               </h2>
               <p className="text-gray-700 mb-4">
-                We collect minimal data to provide and improve our service:
+                For any concerns, contact: {EMAIL_SUPPORT}
               </p>
-              <ul className="text-gray-700 list-disc list-inside space-y-2">
-                <li>Account information (email, username)</li>
-                <li>Content you post (automatically deleted after 24 hours)</li>
-                <li>Device and usage data for analytics</li>
-                <li>Location data (optional, for local trends)</li>
-              </ul>
-            </section>
-
-            {/* Data Usage */}
-            <section className="bg-gray-50 rounded-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center gap-3">
-                <Eye className="w-6 h-6" />
-                How We Use Your Data
-              </h2>
-              <ul className="text-gray-700 list-disc list-inside space-y-2">
-                <li>To provide and maintain our service</li>
-                <li>To notify you about changes</li>
-                <li>To provide customer support</li>
-                <li>To gather analysis for service improvement</li>
-                <li>To monitor usage of the service</li>
-              </ul>
-            </section>
-
-            {/* Data Protection */}
-            <section className="bg-gray-50 rounded-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center gap-3">
-                <User className="w-6 h-6" />
-                Your Rights
-              </h2>
-              <p className="text-gray-700 mb-4">
-                You have the right to:
-              </p>
-              <ul className="text-gray-700 list-disc list-inside space-y-2">
-                <li>Access and receive a copy of your personal data</li>
-                <li>Rectify or update your personal data</li>
-                <li>Delete your account and associated data</li>
-                <li>Restrict or object to our processing of your data</li>
-                <li>Data portability</li>
-              </ul>
-            </section>
-
-            {/* Ephemeral Nature */}
-            <section className="bg-gray-50 rounded-lg p-6">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Ephemeral Content</h2>
               <p className="text-gray-700">
-                All user posts are automatically deleted after 24 hours. This is a core feature of WaitingWall 
-                designed to protect your privacy and encourage authentic sharing.
+                A full Privacy Policy will be published at launch.
               </p>
             </section>
-
-            {/* Contact */}
-            <div className="text-center mt-8 p-6 border rounded-lg">
-              <p className="text-gray-700">
-                For privacy-related questions, contact our Data Protection Officer at{" "}
-                <a href="mailto:privacy@waitingwall.com" className="text-black font-semibold hover:underline">
-                  privacy@waitingwall.com
-                </a>
-              </p>
-            </div>
           </div>
         </div>
       </main>

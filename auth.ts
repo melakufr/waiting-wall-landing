@@ -4,7 +4,7 @@ import Credentials from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
-
+import { EMAIL_SUPPORT } from "@/lib/const";
 export const { handlers, auth, signIn, signOut } = NextAuth({
   // adapter: PrismaAdapter(prisma),
   session: { strategy: "jwt" },
@@ -54,7 +54,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         const { email, password } = parsedCredentials.data;
               
-        const emailMock = "admin@waitingwall.com";
+        const emailMock = EMAIL_SUPPORT;
         const passwordMock = "P@ssw0rd";
 
         if(email != emailMock || password != passwordMock){

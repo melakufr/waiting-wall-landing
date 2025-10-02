@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Building, TrendingUp, Users, Globe, Shield } from "lucide-react";
 import { RegisterInvestorForm } from "@/components/create-investor";
-
+import { EMAIL_SUPPORT } from "@/lib/const";
 export const metadata: Metadata = {
   title: "Investors | WaitingWall",
   description: "Investment opportunities in WaitingWall - The future of ephemeral social networking.",
@@ -120,16 +120,16 @@ export default function InvestorsPage() {
               <div className="space-y-3">
                 <p className="text-gray-700">
                   <strong>Email:</strong>{' '}
-                  <a href="mailto:investors@waitingwall.com" className="text-black hover:underline">
-                    investors@waitingwall.com
-                  </a>
+                  <span  className="text-black hover:underline">
+                    {EMAIL_SUPPORT}
+                  </span>
                 </p>
-                <p className="text-gray-700">
+                {/* <p className="text-gray-700">
                   <strong>Phone:</strong>{' '}
                   <a href="tel:+15551234567" className="text-black hover:underline">
                     +1 (555) 123-4567
                   </a>
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
