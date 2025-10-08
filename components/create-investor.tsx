@@ -16,6 +16,7 @@ export function RegisterInvestorForm({
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    mobile: "",
     location: "",
     ticketSize: "",
   })
@@ -25,7 +26,7 @@ export function RegisterInvestorForm({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }))
   }
 
@@ -33,7 +34,7 @@ export function RegisterInvestorForm({
     e.preventDefault()
 
     // Validation
-    if (!formData.name || !formData.email || !formData.ticketSize) {
+    if (!formData.name || !formData.email || !formData.mobile || !formData.ticketSize) {
       toast({
         title: "Missing information",
         description: "Please fill in all required fields.",
@@ -45,6 +46,14 @@ export function RegisterInvestorForm({
       toast({
         title: "Invalid email",
         description: "Please enter a valid email address.",
+      })
+      return
+    }
+
+    if (!/^\+?\d{7,15}$/.test(formData.mobile)) {
+      toast({
+        title: "Invalid mobile number",
+        description: "Please enter a valid phone number with country code if applicable.",
       })
       return
     }
@@ -69,8 +78,9 @@ export function RegisterInvestorForm({
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          mobile: formData.mobile,
           location: formData.location,
-          ticketSize: ticketSize,
+          ticketSize,
         }),
       })
 
@@ -82,6 +92,7 @@ export function RegisterInvestorForm({
         setFormData({
           name: "",
           email: "",
+          mobile: "",
           location: "",
           ticketSize: "",
         })
@@ -111,12 +122,23 @@ export function RegisterInvestorForm({
         className="w-full"
         required
       />
-      
+
       <Input
         name="email"
         type="email"
         placeholder="Email Address"
         value={formData.email}
+        onChange={handleChange}
+        disabled={isLoading}
+        className="w-full"
+        required
+      />
+
+      <Input
+        name="mobile"
+        type="tel"
+        placeholder="Mobile Number"
+        value={formData.mobile}
         onChange={handleChange}
         disabled={isLoading}
         className="w-full"
@@ -136,7 +158,7 @@ export function RegisterInvestorForm({
       <Input
         name="ticketSize"
         type="number"
-        placeholder="Investment Amount (USD)"
+        placeholder="Ticket Size (USD)"
         value={formData.ticketSize}
         onChange={handleChange}
         disabled={isLoading}
