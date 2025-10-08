@@ -104,11 +104,37 @@ export default function HomePage() {
           </div>
         </div>
       </section> */}
+{/* <section className="px-4 py-8 sm:py-16 max-w-7xl mx-auto">
+  <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight text-balance">
+        Share the Wait.
+      </h1>
+      <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0 font-medium">
+        Every wait matters. Share yours, feel lighter. When you're waiting, you're not alone. It's okay to wait. It's okay to feel. It's okay to share. Something new is coming... Want to see it first? A new kind of social wall where every post vanishes in 24 hours. We're opening the doors slowly. Will you be inside?
+      </p>
+      <div className="space-y-4">
+        <EmailCaptureForm className="max-w-md mx-auto lg:mx-0" />
+        <p className="text-sm text-gray-500 font-medium">
+          We'll never share your email.
+        </p>
+      </div>
+    </div>
+    <div className="relative order-first lg:order-last hidden lg:block">
+      <Image 
+        src={laptop} 
+        alt="WaitingWall App Screenshot" 
+        className="w-full max-w-2xl mx-auto"
+        priority
+      />
+    </div>
+  </div>
+</section> */}
 
 <section className="px-4 py-8 sm:py-16 max-w-7xl mx-auto">
-  <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+  <div className="grid lg:grid-cols-2 gap-12 items-center lg:items-center">
     {/* Text Section */}
-    <div className="space-y-8 text-center lg:text-left">
+    <div className="flex flex-col justify-center space-y-8 text-center lg:text-left">
       <div className="space-y-8 text-lg sm:text-xl text-gray-700 leading-relaxed font-medium max-w-lg mx-auto lg:mx-0">
         <p>
           <span className="font-semibold text-black">Waiting is a universal emotion.</span><br />
@@ -147,16 +173,17 @@ export default function HomePage() {
     </div>
 
     {/* Image Section */}
-    <div className="relative order-first lg:order-last hidden lg:block">
+    <div className="relative flex justify-center lg:justify-end items-center order-first lg:order-last">
       <Image 
         src={laptop} 
         alt="WaitingWall App Screenshot" 
-        className="w-full max-w-2xl mx-auto"
+        className="w-full max-w-2xl h-auto object-contain"
         priority
       />
     </div>
   </div>
 </section>
+
 
       {/* Features Section */}
       <section
@@ -187,7 +214,7 @@ export default function HomePage() {
                 CIRCLE
               </h3>
               <p className="text-gray-600 text-xs sm:text-sm">
-                Share with your friends
+                Where your close people wait with you
               </p>
             </div>
 
@@ -200,7 +227,7 @@ export default function HomePage() {
                 CORNER
               </h3>
               <p className="text-gray-600 text-xs sm:text-sm">
-                Share thoughts without your name
+                Where people who wait for the same things gather
               </p>
             </div>
 
