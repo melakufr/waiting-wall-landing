@@ -52,7 +52,7 @@
         .edit the domain (waitingwall.com)
         .click Enable Domain
         
-    ==cleak setup
+    ==clerk setup
     1-create clerk account
     2-follow quick guide
         .Install @clerk/nextjs
@@ -62,3 +62,4 @@
         .Update middleware.ts
         .Add provider in layout.ts
             .add clerk components // in this project navbar, in page.tsx
+    3- add clerk env varialble to Vercel(when deploy)
