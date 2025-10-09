@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,15 +23,12 @@ export function MobileNav() {
             <a href="#how-it-works" className="text-gray-700 hover:text-black py-2" onClick={() => setIsOpen(false)}>
               How It Works
             </a>
-            <a href="#community" className="text-gray-700 hover:text-black py-2" onClick={() => setIsOpen(false)}>
-              Community
-            </a>
-            <a href="#faq" className="text-gray-700 hover:text-black py-2" onClick={() => setIsOpen(false)}>
+            <Link href="/faq" className="text-gray-700 hover:text-black py-2" onClick={() => setIsOpen(false)}>
               FAQ
-            </a>
-            <a href="#signin" className="text-gray-700 hover:text-black py-2" onClick={() => setIsOpen(false)}>
+            </Link>
+            <Link href="/admin/auth/login" className="text-gray-700 hover:text-black py-2" onClick={() => setIsOpen(false)}>
               Sign in
-            </a>
+            </Link>
           </nav>
         </div>
       )}

@@ -29,8 +29,8 @@ import {
 import { EmailCaptureForm } from "@/components/email-capture-form";
 import { MobileNav } from "@/components/mobile-nav";
 import { HourglassAnimation } from "@/components/hourglass-animation";
-import laptop from "@/public/laptops.jpg";
-import phones from "@/public/phones.jpg"; 
+import laptop from "@/public/laptop.png";
+import phones from "@/public/phones.png"; 
 import Image from "next/image";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -135,7 +135,7 @@ export default function HomePage() {
   <div className="grid lg:grid-cols-2 gap-12 items-center lg:items-center">
     {/* Text Section */}
     <div className="flex flex-col justify-center space-y-8 text-center lg:text-left">
-      <div className="space-y-8 text-lg sm:text-xl text-gray-700 leading-relaxed font-medium max-w-lg mx-auto lg:mx-0">
+      <div className="space-y-8 text-gray-700 leading-relaxed font-medium max-w-lg mx-auto lg:mx-0">
         <p>
           <span className="font-semibold text-black">Waiting is a universal emotion.</span><br />
           Everyone’s waiting for something.
@@ -173,9 +173,10 @@ export default function HomePage() {
     </div>
 
     {/* Image Section */}
-    <div className="relative flex justify-center lg:justify-end items-center order-first lg:order-last">
+    <div className="hidden md:flex relative  justify-center lg:justify-end items-center order-first lg:order-last">
       <Image 
         src={laptop} 
+        height={400}
         alt="WaitingWall App Screenshot" 
         className="w-full max-w-2xl h-auto object-contain"
         priority
