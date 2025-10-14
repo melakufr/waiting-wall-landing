@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import { Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 
 
 export const metadata: Metadata = {
@@ -22,12 +23,28 @@ export default function RootLayout({
 }>) {
   return (
 
-      <html lang="en">
-        <body className={spaceGrotesk.className}>
-          {children}
-          <Toaster />
-        </body>
-      </html>
- 
+    <html lang="en">
+      <head>
+        {/* googleTag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-K5HVL7F0PE"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-K5HVL7F0PE');
+          `}
+        </Script>
+      </head>
+
+      <body className={spaceGrotesk.className}>
+        {children}
+        <Toaster />
+      </body>
+    </html>
+
   );
 }
